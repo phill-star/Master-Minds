@@ -1,0 +1,81 @@
+body {
+  background:rgb(118, 156, 163);
+  font-style: italic;
+  
+}
+.start_btn,
+.info_box
+{
+  text-align: center;
+  margin: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* start quiz Button styling*/
+.start_btn button
+{
+  font-size: 25px;
+  font-weight: 500px;
+  color: black;
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  border-radius:5px;
+  background: white;
+  cursor: pointer;
+}
+.info_box
+{
+  width: 550px;
+  background: white;
+  border-radius: 5px;
+}
+.info_box .info_title
+{
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info_box .info_title
+{
+  padding: 15px 35px;
+}
+
+.info_box .info_list .info
+{
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.info_box .info_list .info span
+{
+  margin: 10px;
+  font-weight: 500;
+  color:red;
+
+}
+.info_box .buttons
+{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 35px;
+  border-top: 1px solid lightgrey;
+}
+
+.info_box .buttons button
+{
+  margin: 0 5px;
+  height: 40px;
+  width: 100px;
+}
