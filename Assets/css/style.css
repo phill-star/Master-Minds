@@ -1,81 +1,140 @@
+
+/* ------------------ */
+/* global Declaration */
+/* ------------------ */
+
+*{
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+
+  /* debugging  */
+  /*border: 1px solid red;*/
+
+  /* global default font */
+  font-family: monospace;
+}
+
 body {
-  background:rgb(118, 156, 163);
-  font-style: italic;
-  
-}
-.start_btn,
-.info_box
-{
-  text-align: center;
-  margin: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: rgb(20, 19, 19);
+  /*overflow: hidden;*/
 }
 
-/* start quiz Button styling*/
-.start_btn button
-{
-  font-size: 25px;
-  font-weight: 500px;
-  color: black;
-  padding: 15px 30px;
+p {
+  color: white;
+  font-size: 1.5em;
+}
+
+button {
   outline: none;
-  border: none;
-  border-radius:5px;
-  background: white;
-  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-size: 1.5em;
 }
-.info_box
-{
-  width: 550px;
-  background: white;
-  border-radius: 5px;
+
+h1, h2 {
+  color: white;
+  text-align: center;
 }
-.info_box .info_title
-{
-  height: 60px;
-  width: 100%;
-  border-bottom: 1px solid lightgray;
+li {
+  list-style: none;
+}
+
+
+/* ------------------------ */
+/* Outter-Container Section */
+/* ------------------------ */
+
+.outer-container {
+  padding: 10px;
+  /*height: 100vh;*/
   display: flex;
-  align-items: center;
-  padding: 0 35px;
-  font-size: 20px;
-  font-weight: 600;
+  flex-direction: column;
+  justify-content: start;
 }
 
-.info_box .info_title
-{
-  padding: 15px 35px;
+/* ----------------- */
+/* Top-Bar Container */
+/* ----------------- */
+
+.top-bar, p {
+  float: right;
 }
 
-.info_box .info_list .info
-{
-  margin: 10px 0;
-  font-size: 15px;
-}
+/* ----------------------- */
+/* Inner-Container Section */
+/* ----------------------- */
 
-.info_box .info_list .info span
-{
-  margin: 10px;
-  font-weight: 500;
-  color:red;
-
-}
-.info_box .buttons
-{
-  height: 60px;
+.inner-container {
+  background-color: black;
+  height: 100vh;
+  width: 45%;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 35px;
-  border-top: 1px solid lightgrey;
+  flex-direction: column;
+  justify-content: center; 
 }
 
-.info_box .buttons button
-{
-  margin: 0 5px;
-  height: 40px;
-  width: 100px;
+
+/* ------------------------- */
+/* Header/Quiz Intro Section */
+/* ------------------------- */
+
+.quiz-intro, main {
+  display: block;
+  margin-top: 0vh;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: slategrey;
+}
+
+.quiz-intro p{
+  text-align: center;
+}
+
+.quiz-intro button {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* ----------------- */
+/* Main Quiz Content */
+/* ----------------- */
+
+main {
+  display: block;
+}
+
+/* --------------- */
+/* Question Screen */
+/* --------------- */
+
+.question-screen {
+  display: none;
+}
+
+
+/* ------------------ */
+/* Quiz Finish Screen */
+/* ------------------ */
+
+.quiz-finish-screen {
+  display: none;
+}
+
+/* ----------------- */
+/* Highscores Screen */
+/* ----------------- */
+
+.highscores-screen {
+  display: none;
+}
+
+.highscores-screen ol {
+  max-height: 200px;
+}
+
+.highscores-screen ol:hover {
+ overflow-y: scroll;
 }
