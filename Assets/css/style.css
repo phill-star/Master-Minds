@@ -110,7 +110,8 @@ main {
 /* Question Screen */
 /* --------------- */
 
-.question-screen {
+.question-screen,
+.quiz-finish-screen {
   display: none;
 }
 

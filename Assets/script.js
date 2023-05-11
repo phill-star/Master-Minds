@@ -3,6 +3,7 @@ const startQuizButton = document.querySelector('.quiz-intro-button');
 const questionScreen = document.querySelector('.question-screen');
 const questionText = document.querySelector('.question-screen h2');
 const answerButtons = document.querySelectorAll('.question-screen li button');
+const quizIntroScreen = document.querySelector('.quiz-intro');
 const quizFinishScreen = document.querySelector('.quiz-finish-screen');
 const scoreText = document.querySelector('.quiz-finish-screen p');
 const initialsInput = document.querySelector('.quiz-finish-screen input');
@@ -11,7 +12,26 @@ const highscoresScreen = document.querySelector('.highscores-screen');
 const highscoresList = document.querySelector('.highscores-screen ol');
 const viewHighscoreButton = document.querySelector('.top-bar button');
 
-// Define the quiz questions and answers
+// Define the quiz questions and answers //
+
+// Hide question screen initially //
+questionScreen.style.display = 'none';
+
+// Event listener for start quiz button
+startQuizButton.addEventListener('click', () => {
+  // Display question screen and hide quiz intro screen //
+  questionScreen.style.display = 'block';
+  quizIntroScreen.style.display = 'none';
+});
+
+// Event listeners for answer buttons //
+answerButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Handle answer button click
+  });
+});
+
+
 const quizQuestions = [
   {
     question: "Question 1: Who the only player in NFL History with 7 Super Bowl ring?",
@@ -66,7 +86,12 @@ let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 60;
 
-// Start the quiz
+// Hide the quiz questions and finish screen initially //
+questionScreen.style.display = 'none';
+quizFinishScreen.style.display = 'none';
+
+
+// Start the quiz //
 startQuizButton.addEventListener('click', startQuiz);
 
 // Function to start the quiz
@@ -76,7 +101,8 @@ function startQuiz() {
   startTimer();
 }
 
-// Function to show the current question
+
+// Function to show the current question //
 function showQuestion() {
   const question = quizQuestions[currentQuestionIndex];
   questionText.textContent = question.question;
@@ -87,7 +113,7 @@ function showQuestion() {
   }
 }
 
-// Function to select an answer
+// Function to select an answer //
 function selectAnswer(event) {
   const selectedButton = event.target;
   const selectedAnswer = selectedButton.textContent;
@@ -106,25 +132,45 @@ function selectAnswer(event) {
   }
 }
 
-// Function to end the quiz
+// Function to end the quiz //
 function endQuiz() {
   questionScreen.style.display = 'none';
   quizFinishScreen.style.display = 'block';
   scoreText.textContent = `Your Score: ${score}`;
 }
 
-// Function to start the timer
+// Function to start the timer //
+const timerElement = document.querySelector('.top-bar p');
+
+let timer = null;
+let seconds = 0;
+
 function startTimer() {
-  const timerInterval = setInterval(() => {
-    timeLeft--;
-    if (timeLeft <= 0) {
-      clearInterval(timerInterval);
-      endQuiz();
-    }
-  }, 1000);
+    timer = setInterval(function() {
+      timeLeft--;
+      if (timeLeft === 0) {
+        endQuiz();
+        stopTimer();
+        return;
+      }
+      const minutes = Math.floor(timeLeft / 60);
+      const remainingSeconds = timeLeft % 60;
+      timerElement.textContent = `Timer: ${minutes < 1 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }, 1000);
+  }
+  
+
+function stopTimer() {
+  clearInterval(timer);
 }
 
-// Save high score
+startQuizButton.addEventListener('click', function() {
+  startTimer();
+  // other code to start the quiz //
+});
+
+
+// Save high score //
 submitButton.addEventListener('click', saveHighScore);
 
 function saveHighScore() {
@@ -138,10 +184,27 @@ function saveHighScore() {
   quizFinishScreen.style.display = 'none';
   highscoresScreen.style.display = 'block';
 }
+  
+  // clear high score //
+  const clearHighscoresButton = document.querySelector('.highscores-screen button:last-of-type');
 
-// View highscores
-viewHighscoreButton.addEventListener('click', showHighscores);
+clearHighscoresButton.addEventListener('click', () => {
+  localStorage.removeItem('highscores');
+  highscoresList.innerHTML = ''; // Clear the highscores list on the screen
+});
 
-function showHighscores() {
-  questionScreen.style.display
-}
+ // Back button //
+ const backButton = document.querySelector('.highscores-screen button:first-of-type');
+backButton.addEventListener('click', () => {
+  window.location.reload();
+});
+
+// View highscores //
+viewHighscoreButton.addEventListener('click', () => {
+    // Hide the quiz intro screen and question screen
+    quizIntroScreen.style.display = 'none';
+    questionScreen.style.display = 'none';
+  
+    // Display the highscores screen //
+    highscoresScreen.style.display = 'block';
+  });
