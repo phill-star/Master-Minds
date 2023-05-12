@@ -1,1 +1,1 @@
-# Master-Minds![nfl-logo](https://github.com/phill-star/Master-Minds/assets/130422301/68da32d6-349d-4543-9e6d-f0a0bfb21f67)
+<img width="1512" alt="Screenshot 2023-05-11 at 10 49 36 PM" src="https://github.com/phill-star/Master-Minds/assets/130422301/ea62514d-8fd4-4fc4-b082-0e0f22906f59">
