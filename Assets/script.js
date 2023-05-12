@@ -35,8 +35,8 @@ answerButtons.forEach((button) => {
 
 const quizQuestions = [
   {
-    question: "Question 1: Who the only player in NFL History with 7 Super Bowl ring?",
-    answers: ["Joe Montana", "Tom Brady", "Troy Akman", "Peyton Manning"],
+    question: "Question 1: Who the only player in NFL History with 7 Super Bowl rings?",
+    answers: ["Joe Montana", "Tom Brady", "Troy Aikman", "Peyton Manning"],
     correctAnswer: "Tom Brady"
   },
   {
@@ -51,7 +51,7 @@ const quizQuestions = [
   },
   {
     question: "Question 4: Who the only NFL team to go undefeated and win the Super Bowl?",
-    answers: ["New Endgland Patriots", "Philladelphia Eagles", "Miami Dolphins", "New Orleans Saints"],
+    answers: ["New England Patriots", "Philadelphia Eagles", "Miami Dolphins", "New Orleans Saints"],
     correctAnswer: "Miami Dolphins"
   },
   {
