@@ -11,6 +11,7 @@ const submitButton = document.querySelector('.quiz-finish-screen button');
 const highscoresScreen = document.querySelector('.highscores-screen');
 const highscoresList = document.querySelector('.highscores-screen ol');
 const viewHighscoreButton = document.querySelector('.top-bar button');
+const timerElement = document.querySelector('.top-bar p');
 
 // Define the quiz questions and answers //
 
@@ -139,26 +140,34 @@ function endQuiz() {
   scoreText.textContent = `Your Score: ${score}`;
 }
 
+// Function to start the quiz //
+startQuizButton.addEventListener('click', startQuiz);
+
 // Function to start the timer //
-const timerElement = document.querySelector('.top-bar p');
 
 let timer = null;
-let seconds = 0;
 
-function startTimer() {
+function startQuiz() {
+  questionScreen.style.display = 'block';
+  showQuestion();
+
+  // Start the timer only once //
+  if (!timer) {
     timer = setInterval(function() {
-        timeLeft--;
-        if (timeLeft === 0) {
-          endQuiz();
-          stopTimer();
-          return;
-        }
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-      }, 1000);
-      
+      timeLeft--;
+      if (timeLeft === 0) {
+        timerElement.textContent = 'Time left: 0';
+        endQuiz();
+        stopTimer();
+        return;
+      }
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }, 1000);
   }
+}
+
   
   
 function stopTimer() {

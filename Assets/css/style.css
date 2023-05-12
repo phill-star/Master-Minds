@@ -1,7 +1,5 @@
 
-/* ------------------ */
 /* global Declaration */
-/* ------------------ */
 
 *{
   margin: 0; 
@@ -15,9 +13,16 @@
   font-family: monospace;
 }
 
+/* body {
+  background-color: rgb(31, 29, 29);
+  /*overflow: hidden; 
+  
+} */
 body {
-  background-color: rgb(20, 19, 19);
-  /*overflow: hidden;*/
+  background-image: url('image/nfl-logo.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 p {
@@ -41,10 +46,7 @@ li {
 }
 
 
-/* ------------------------ */
 /* Outter-Container Section */
-/* ------------------------ */
-
 .outer-container {
   padding: 10px;
   /*height: 100vh;*/
@@ -53,18 +55,12 @@ li {
   justify-content: start;
 }
 
-/* ----------------- */
 /* Top-Bar Container */
-/* ----------------- */
-
 .top-bar, p {
   float: right;
 }
 
-/* ----------------------- */
 /* Inner-Container Section */
-/* ----------------------- */
-
 .inner-container {
   background-color: black;
   height: 100vh;
@@ -75,11 +71,7 @@ li {
   justify-content: center; 
 }
 
-
-/* ------------------------- */
 /* Header/Quiz Intro Section */
-/* ------------------------- */
-
 .quiz-intro, main {
   display: block;
   margin-top: 0vh;
@@ -98,36 +90,23 @@ li {
   margin: 0 auto;
 }
 
-/* ----------------- */
 /* Main Quiz Content */
-/* ----------------- */
-
 main {
   display: block;
 }
 
-/* --------------- */
 /* Question Screen */
-/* --------------- */
-
 .question-screen,
 .quiz-finish-screen {
   display: none;
 }
 
-
-/* ------------------ */
 /* Quiz Finish Screen */
-/* ------------------ */
-
 .quiz-finish-screen {
   display: none;
 }
 
-/* ----------------- */
 /* Highscores Screen */
-/* ----------------- */
-
 .highscores-screen {
   display: none;
 }
