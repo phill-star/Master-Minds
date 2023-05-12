@@ -147,19 +147,20 @@ let seconds = 0;
 
 function startTimer() {
     timer = setInterval(function() {
-      timeLeft--;
-      if (timeLeft === 0) {
-        endQuiz();
-        stopTimer();
-        return;
-      }
-      const minutes = Math.floor(timeLeft / 60);
-      const remainingSeconds = timeLeft % 60;
-      timerElement.textContent = `Timer: ${minutes < 1 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    }, 1000);
+        timeLeft--;
+        if (timeLeft === 0) {
+          endQuiz();
+          stopTimer();
+          return;
+        }
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      }, 1000);
+      
   }
   
-
+  
 function stopTimer() {
   clearInterval(timer);
 }
@@ -188,20 +189,20 @@ function saveHighScore() {
   // clear high score //
   const clearHighscoresButton = document.querySelector('.highscores-screen button:last-of-type');
 
-clearHighscoresButton.addEventListener('click', () => {
+  clearHighscoresButton.addEventListener('click', () => {
   localStorage.removeItem('highscores');
-  highscoresList.innerHTML = ''; // Clear the highscores list on the screen
+   highscoresList.innerHTML = ''; // Clear the highscores list on the screen
 });
 
  // Back button //
- const backButton = document.querySelector('.highscores-screen button:first-of-type');
-backButton.addEventListener('click', () => {
-  window.location.reload();
+   const backButton = document.querySelector('.highscores-screen button:first-of-type');
+   backButton.addEventListener('click', () => {
+   window.location.reload();
 });
 
 // View highscores //
-viewHighscoreButton.addEventListener('click', () => {
-    // Hide the quiz intro screen and question screen
+   viewHighscoreButton.addEventListener('click', () => {
+   // Hide the quiz intro screen and question screen
     quizIntroScreen.style.display = 'none';
     questionScreen.style.display = 'none';
   
